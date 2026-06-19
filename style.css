@@ -1,24 +1,81 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+/* 1. RESET E VARIÁVEIS 
+   Centralizamos as cores aqui para ficar fácil mudar o site todo de uma vez. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-  background:#111;
-  color:white;
-  font-family:Arial;
+:root {
+  --bg-principal: #0b0c10;     /* Um preto azulado mais moderno que o #111 */
+  --cor-texto: #ffffff;
+  --cor-suporte: #94a3b8;     /* Cinza azulado para textos secundários */
+  --cor-destaque: #6366f1;    /* Roxo/Índigo elétrico para botões e links */
+  --cor-destaque-hover: #4f46e5;
 }
 
-.hero{
-  height:100vh;
-
-  display:flex;
-  flex-direction:column;
-
-  justify-content:center;
-  align-items:center;
-
-  gap:20px;
+/* 2. CORPO DO SITE */
+body {
+  background-color: var(--bg-principal);
+  color: var(--cor-texto);
+  /* Substituí Arial por fontes do sistema, que são mais elegantes e limpas */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
 }
 
+/* 3. ESTRUTURA HERO 
+   Mantive o seu Flexbox, mas adicionei um preenchimento de segurança para celulares. */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+  text-align: center;
+}
+
+/* 4. DESIGN DOS TEXTOS (O que faz o site parecer profissional) */
+.hero h1 {
+  font-size: 3rem;           /* Texto grande e de forte impacto */
+  font-weight: 800;
+  letter-spacing: -0.03em;   /* Letras levemente mais juntas (estilo premium) */
+  max-width: 800px;
+}
+
+/* Destaque de cor em palavras específicas no título */
+.hero h1 span {
+  color: var(--cor-destaque);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--cor-suporte); /* Texto secundário não briga com o título */
+  max-width: 600px;
+  margin-bottom: 12px;
+}
+
+/* 5. DESIGN DO BOTÃO (Call to Action) */
+.btn-cta {
+  display: inline-block;
+  background-color: var(--cor-destaque);
+  color: white;
+  text-decoration: none;
+  padding: 14px 36px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  /* Transição suave para o efeito de passar o mouse */
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Efeito ao passar o mouse */
+.btn-cta:hover {
+  background-color: var(--cor-destaque-hover);
+  transform: translateY(-2px); /* O botão sobe de leve */
+}
+
+.btn-cta:active {
+  transform: translateY(0);
+}
